@@ -6,9 +6,8 @@ From "user guide - svet branch",
 ## 1.2.1 "Upgrade to LTS for 11th Gen Tiger Lake processor"
 
 ```
-sudo apt install coreutils build-essential bc kmod cpio flex
-libncurses5-dev libelf-dev libssl-dev bison
-wget https://github.com/intel/linux-intellts/archive/refs/tags/lts-v5.10.90-yocto-220208T044440Z.zip
+sudo apt install coreutils build-essential bc kmod cpio flex libncurses5-dev libelf-dev libssl-dev bison
+wget https://github.com/intel/linux-intel-lts/archive/refs/tags/lts-v5.10.90-yocto-220208T044440Z.zip
 unzip lts-v5.10.90-yocto-220208T044440Z.zip
 cd linux-intel-lts-lts-v5.10.90-yocto-220208T044440Z
 make olddefconfig #Select the default value for unset config
@@ -17,6 +16,15 @@ make -j8
 sudo -E make INSTALL_MOD_STRIP=1 modules_install
 sudo -E make install
 ```
+
+If above ```make INSTALL_MOD_STRIP=1 modules_install```
+Ref link:
+* https://askubuntu.com/questions/1329538/compiling-the-kernel-5-11-11
+
+To disable CONFIG_DEBUG_INFO_BTF during Linux kernel build, you need to modify the kernel configuration before building the kernel. The configuration option CONFIG_DEBUG_INFO_BTF controls whether BTF (BPF Type Format) debugging information is generated during the build.
+
+
+* ```sudo apt install zstd```
 
 ```
 wget https://github.com/intel/intel-linuxfirmware/raw/main/tgl_guc_65.4.0.bin
