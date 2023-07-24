@@ -27,9 +27,9 @@ To disable CONFIG_DEBUG_INFO_BTF during Linux kernel build, you need to modify t
 * ```sudo apt install zstd```
 
 ```
-wget https://github.com/intel/intel-linuxfirmware/raw/main/tgl_guc_65.4.0.bin
-wget https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linuxfirmware.git/plain/i915/tgl_huc_7.9.3.bin
-wget https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linuxfirmware.git/plain/i915/tgl_dmc_ver2_12.bin
+wget https://github.com/intel/intel-linux-firmware/raw/main/tgl_guc_65.4.0.bin
+wget https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/i915/tgl_huc_7.9.3.bin
+wget https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/i915/tgl_dmc_ver2_12.bin
 sudo cp *.bin /lib/firmware/i915
 sudo update-initramfs -u -k all
 ```
@@ -56,21 +56,20 @@ sudo cat /sys/kernel/debug/driv/0/i915_gpu_info | grep firmware
 ### 1.2.5
 ```
 mkdir neo; cd neo
-wget https://github.com/intel/intel-graphicscompiler/releases/download/igc-1.0.11222/intel-igccore_1.0.11222_amd64.deb
-wget https://github.com/intel/intel-graphicscompiler/releases/download/igc-1.0.11222/intel-igcopencl_1.0.11222_amd64.deb
-wget https://github.com/intel/computeruntime/releases/download/22.20.23198/intel-level-zero-gpudbgsym_1.3.23198_amd64.ddeb
-wget https://github.com/intel/computeruntime/releases/download/22.20.23198/intel-level-zerogpu_1.3.23198_amd64.deb
-wget https://github.com/intel/computeruntime/releases/download/22.20.23198/intel-opencl-icddbgsym_22.20.23198_amd64.ddeb
-wget https://github.com/intel/computeruntime/releases/download/22.20.23198/intel-openclicd_22.20.23198_amd64.deb
-wget https://github.com/intel/computeruntime/releases/download/22.20.23198/libigdgmm12_22.1.2_amd64.
-deb
+wget https://github.com/intel/intel-graphics-compiler/releases/download/igc-1.0.11222/intel-igc-core_1.0.11222_amd64.deb
+wget https://github.com/intel/intel-graphics-compiler/releases/download/igc-1.0.11222/intel-igc-opencl_1.0.11222_amd64.deb
+wget https://github.com/intel/compute-runtime/releases/download/22.20.23198/intel-level-zero-gpu-dbgsym_1.3.23198_amd64.ddeb
+wget https://github.com/intel/compute-runtime/releases/download/22.20.23198/intel-level-zero-gpu_1.3.23198_amd64.deb
+wget https://github.com/intel/compute-runtime/releases/download/22.20.23198/intel-opencl-icd-dbgsym_22.20.23198_amd64.ddeb
+wget https://github.com/intel/compute-runtime/releases/download/22.20.23198/intel-opencl-icd_22.20.23198_amd64.deb
+wget https://github.com/intel/compute-runtime/releases/download/22.20.23198/libigdgmm12_22.1.2_amd64.deb
 sudo dpkg -i *.deb
 ```
 
 
 ```
-sudo usermod -a -G video USER
-sudo usermod -a -G render USER
+sudo usermod -a -G video $USER
+sudo usermod -a -G render $USER
 ```
 
 
@@ -78,9 +77,7 @@ sudo usermod -a -G render USER
 ```
 su
 cd /opt/intel/openvino_2022/extras/scripts/
-wget
-https://storage.openvinotoolkit.org/repositories/openvino/packa
-ges/2022.1/opencv/openvino_opencv_ubuntu20.tgz
+wget https://storage.openvinotoolkit.org/repositories/openvino/packages/2022.1/opencv/openvino_opencv_ubuntu20.tgz
 mv openvino_opencv_ubuntu20.tgz ../../
 cd ../../
 tar zxvf openvino_opencv_ubuntu20.tgz
