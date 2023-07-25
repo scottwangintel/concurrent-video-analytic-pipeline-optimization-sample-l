@@ -74,6 +74,11 @@ sudo usermod -a -G render $USER
 
 
 ### 1.2.6
+
+Download OpenVINO 2022.1 package from archive:
+https://storage.openvinotoolkit.org/repositories/openvino/packages/2022.1/l_openvino_toolkit_dev_ubuntu20_p_2022.1.0.643.tgz
+
+
 ```
 su
 cd /opt/intel/openvino_2022/extras/scripts/
