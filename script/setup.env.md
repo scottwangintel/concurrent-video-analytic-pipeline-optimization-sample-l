@@ -47,7 +47,7 @@ sudo -E update-grub
 
 ```
 uname -a
-sudo cat /sys/kernel/debug/driv/0/i915_gpu_info | grep firmware
+sudo cat /sys/kernel/debug/dri/0/i915_gpu_info | grep firmware
 ```
 
 
